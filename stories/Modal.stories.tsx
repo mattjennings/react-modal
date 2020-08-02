@@ -12,7 +12,7 @@ export const Basic = () => {
     <>
       <Button onClick={() => setOpen(true)}>open</Button>
       <Modal open={open} onClose={() => setOpen(false)}>
-        {({ close }) => (
+        {({ onClose }) => (
           <>
             <ModalTitle>
               <Text
@@ -28,7 +28,7 @@ export const Basic = () => {
               <Text>This is the modal example</Text>
             </ModalContent>
             <ModalFooter>
-              <Button variant="pill" onClick={close}>
+              <Button variant="pill" onClick={onClose}>
                 OK
               </Button>
             </ModalFooter>
@@ -74,7 +74,7 @@ export const CustomAnimation = () => {
           },
         }}
       >
-        {({ close }) => (
+        {({ onClose }) => (
           <>
             <ModalTitle>
               <Text
@@ -90,7 +90,7 @@ export const CustomAnimation = () => {
               <Text>This is the modal example</Text>
             </ModalContent>
             <ModalFooter>
-              <Button variant="pill" onClick={close}>
+              <Button variant="pill" onClick={onClose}>
                 OK
               </Button>
             </ModalFooter>
@@ -107,7 +107,7 @@ export const Scrolling = () => {
     <>
       <Button onClick={() => setOpen(true)}>open</Button>
       <Modal open={open} onClose={() => setOpen(false)}>
-        {({ close }) => (
+        {({ onClose }) => (
           <>
             <ModalTitle>
               <Text
@@ -168,7 +168,7 @@ export const Scrolling = () => {
               </Text>
             </ModalContent>
             <ModalFooter>
-              <Button variant="pill" onClick={close}>
+              <Button variant="pill" onClick={onClose}>
                 OK
               </Button>
             </ModalFooter>

@@ -36,7 +36,7 @@ import { Text, Button } from 'theme-ui'
 function MyModal(props) {
   return (
     <Modal {...props}>
-      {({ close }) => (
+      {({ onClose }) => (
         <>
           <ModalTitle>
             <Text
@@ -52,7 +52,7 @@ function MyModal(props) {
             <Text>This is a modal example</Text>
           </ModalContent>
           <ModalFooter>
-            <Button onClick={close}>OK</Button>
+            <Button onClick={onClose}>OK</Button>
           </ModalFooter>
         </>
       )}
@@ -119,7 +119,9 @@ export const theme = withModalTheme({
       backgroundColor: 'background',
       display: 'flex',
       flexDirection: 'column',
-      height: 'fill-available',
+      minHeight: '100vh',
+      maxHeight: '100vh',
+      height: `fill-available`,
       position: 'absolute',
       top: 0,
       width: '100vw',

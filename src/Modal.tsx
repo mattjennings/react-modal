@@ -51,9 +51,7 @@ export interface ModalProps extends Omit<BoxProps, 'children'> {
    */
   Backdrop?: React.ComponentType<any>
 
-  children?:
-    | React.ReactNode
-    | ((props: { close: () => any }) => React.ReactNode)
+  children?: React.ReactNode | ((props: ModalContextValue) => React.ReactNode)
 
   /**
    * The framer-motion animation variants to use
@@ -157,7 +155,7 @@ export default function Modal({
                 {...(props as any)}
               >
                 {typeof children === `function`
-                  ? children({ close: handleClose })
+                  ? children(contextValue)
                   : children}
               </MotionBox>
             </Box>
