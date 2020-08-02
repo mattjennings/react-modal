@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, BoxProps, Close } from 'theme-ui'
-import { useModal } from './Modal'
+import { useModal } from './ModalContext'
 
 export interface ModalTitleProps extends BoxProps {
   CloseButton?: React.ComponentType<{ onClick: () => any }>

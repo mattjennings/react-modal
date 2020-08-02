@@ -11,4 +11,5 @@ export * from './ModalFooter'
 export { default as ModalTitle } from './ModalTitle'
 export * from './ModalTitle'
 
+export { useModal } from './ModalContext'
 export * from './theme'

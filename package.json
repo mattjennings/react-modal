@@ -1,7 +1,10 @@
 {
-  "version": "0.1.0",
+  "name": "react-modal",
+  "author": "Matt Jennings",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.js",
+  "module": "dist/react-modal.esm.js",
   "typings": "dist/index.d.ts",
   "repository": {
     "type": "git",
@@ -21,10 +24,13 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=16",
+    "framer-motion": "^2.0.0",
+    "theme-ui": "^0.3.0"
   },
   "husky": {
     "hooks": {
@@ -37,9 +43,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-modal",
-  "author": "Matt Jennings",
-  "module": "dist/react-modal.esm.js",
   "devDependencies": {
     "@babel/core": "^7.11.0",
     "@storybook/addon-actions": "^5.3.19",
@@ -48,6 +51,7 @@
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
+    "@storybook/storybook-deployer": "^2.8.6",
     "@theme-ui/presets": "^0.3.0",
     "@types/react": "^16.9.44",
     "@types/react-dom": "^16.9.8",
@@ -60,14 +64,14 @@
     "ts-loader": "^8.0.2",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "framer-motion": "^2.3.0",
+    "theme-ui": "^0.3.1",
+    "@types/theme-ui": "^0.3.6"
   },
   "dependencies": {
     "@mattjennings/react-modal-stack": "^1.0.1",
     "@theme-ui/match-media": "^0.3.1",
-    "@types/theme-ui": "^0.3.6",
-    "framer-motion": "^2.3.0",
-    "react-scrolllock": "^5.0.1",
-    "theme-ui": "^0.3.1"
+    "react-scrolllock": "^5.0.1"
   }
 }

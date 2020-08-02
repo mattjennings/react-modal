@@ -1,12 +1,13 @@
-import { motion, Variant, AnimatePresence } from 'framer-motion'
-import React, { useRef, useMemo, useState, useContext } from 'react'
-import { Box, Flex, BoxProps } from 'theme-ui'
 import { useModals } from '@mattjennings/react-modal-stack'
-import Backdrop from './Backdrop'
 // @ts-ignore
 import { useResponsiveValue } from '@theme-ui/match-media'
+import { AnimatePresence, motion, Variant } from 'framer-motion'
+import { ModalContextValue, ModalContext } from 'ModalContext'
+import React, { useMemo } from 'react'
 // @ts-ignore
-import ScrollLock, { TouchScrollable } from 'react-scrolllock'
+import { TouchScrollable } from 'react-scrolllock'
+import { Box, BoxProps } from 'theme-ui'
+import Backdrop from './Backdrop'
 
 export interface ModalProps extends Omit<BoxProps, 'children'> {
   open?: boolean
@@ -262,17 +263,4 @@ function getBreakpoints(value: boolean | 'xs' | 'sm' | 'md' | 'lg') {
     case `lg`:
       return [true, true, true, true, false]
   }
-}
-
-export interface ModalContextValue {
-  allowClose: boolean
-  skipAnimations?: boolean
-  isFullScreen?: boolean
-  onClose?: () => any
-}
-
-const ModalContext = React.createContext<ModalContextValue>({} as any)
-
-export function useModal() {
-  return useContext(ModalContext)
 }

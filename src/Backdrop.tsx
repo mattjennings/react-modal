@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, BoxProps } from 'theme-ui'
 import { motion, MotionProps } from 'framer-motion'
-import { useModal } from './Modal'
+import { useModal } from './ModalContext'
 
 const MotionBox = motion.custom(Box)
 

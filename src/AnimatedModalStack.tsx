@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
 import {
-  ModalStackValue,
-  ModalStackProps,
   ModalStack,
+  ModalStackProps,
+  ModalStackValue,
 } from '@mattjennings/react-modal-stack'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
 import Backdrop from './Backdrop'
 
 export default function AnimatedModalStack(props: ModalStackProps) {
