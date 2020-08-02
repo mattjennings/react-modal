@@ -1,6 +1,8 @@
 # react-modal
 
-React modal components built for [theme-ui](https://github.com/system-ui/theme-ui) with `framer-motion` for animations.
+React modal components built for [theme-ui](https://github.com/system-ui/theme-ui) with [framer-motion](https://github.com/framer/motion) for animations.
+
+[Live Demo](https://mattjennings.github.io/react-modal/)
 
 ## Install
 
@@ -23,7 +25,12 @@ Create a modal
 
 ```jsx
 import React from 'react'
-import { Modal, ModalTitle, ModalContent, ModalFooter } from '../src'
+import {
+  Modal,
+  ModalTitle,
+  ModalContent,
+  ModalFooter,
+} from '@mattjennings/react-modal'
 import { Text, Button } from 'theme-ui'
 
 function MyModal(props) {
@@ -64,7 +71,7 @@ function MyApp() {
 
 ## AnimatedModalStack
 
-There is an exported `AnimatedModalStack` built on top of [@mattjennings/react-modal-stack](https://github.com/mattjennings/react-modal-stack). As long as the Modal is a motion component at the root, it will animate them in/out appropriately.
+`AnimatedModalStack` built on top of [@mattjennings/react-modal-stack](https://github.com/mattjennings/react-modal-stack). As long as the Modal is a motion component at the root, it will animate them in/out appropriately.
 
 ```jsx
 import React from 'react'
@@ -90,30 +97,33 @@ import { withModalTheme } from '@mattjennings/react-modal'
 export const theme = withModalTheme({
   ...tailwind,
   modals: {
-    default: {
+    // add a new `outlined` variant that can be used on <Modal />
+    outlined: {
       backgroundColor: 'background',
-      borderRadius: 0,
-      boxShadow: `md`,
-      display: `flex`,
-      flexDirection: `column`,
-      maxHeight: `100vh`,
+      border: '1px solid',
+      borderRadius: '5px',
+      borderColor: 'gray',
+      display: 'flex',
+      flexDirection: 'column',
+      maxHeight: '100vh',
       minHeight: '16rem',
       minWidth: '16rem',
       maxWidth: '64rem',
-      position: `absolute`,
-      top: [`25%`, `25%`, `10%`],
-      zIndex: `modal`,
+      position: 'absolute',
+      top: ['25%', '25%', '10%'],
+      zIndex: 'modal',
     },
-    defaultFullScreen: {
+
+    // will be used for the `outlined` variant when the modal is in full screen
+    outlinedFullScreen: {
       backgroundColor: 'background',
-      borderRadius: 0,
-      display: `flex`,
-      flexDirection: `column`,
-      height: `fill-available`,
-      position: `absolute`,
+      display: 'flex',
+      flexDirection: 'column',
+      height: 'fill-available',
+      position: 'absolute',
       top: 0,
-      width: `100vw`,
-      zIndex: `modal`,
+      width: '100vw',
+      zIndex: 'modal',
     },
   },
 })
