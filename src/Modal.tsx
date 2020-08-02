@@ -2,7 +2,7 @@ import { useModals } from '@mattjennings/react-modal-stack'
 // @ts-ignore
 import { useResponsiveValue } from '@theme-ui/match-media'
 import { AnimatePresence, motion, Variant } from 'framer-motion'
-import { ModalContextValue, ModalContext } from 'ModalContext'
+import { ModalContextValue, ModalContext } from './ModalContext'
 import React, { useMemo } from 'react'
 // @ts-ignore
 import { TouchScrollable } from 'react-scrolllock'
