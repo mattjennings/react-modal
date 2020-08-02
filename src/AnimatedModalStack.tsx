@@ -62,11 +62,18 @@ function AnimatedModals({ stack, closeModal }: ModalStackValue) {
             Backdrop={null}
             onClose={closeModal}
             onAnimationComplete={() => {
-              // once the animation is complete (dismiss), update the displayed stack
-              if (displayedStack.length > 0) {
-                setDisplayedStack(stack)
+              // set open state for next modal
+              if (stack.length > 0) {
                 setOpen(true)
+              } else {
+                setOpen(false)
               }
+
+              // update displayed stack
+              // setTimeout is a hack to prevent a warning about updating state
+              // in an unmounted component (I can't figure out why it happens, or why this fixes it)
+              setTimeout(() => setDisplayedStack(stack))
+
               modal.props?.onAnimationComplete?.()
             }}
             skipAnimations={skipAnimations}
