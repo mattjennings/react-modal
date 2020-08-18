@@ -1,7 +1,7 @@
 {
   "name": "@mattjennings/react-modal",
   "author": "Matt Jennings",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/react-modal.esm.js",
@@ -30,7 +30,8 @@
   "peerDependencies": {
     "react": ">=16",
     "framer-motion": "^2.0.0",
-    "theme-ui": "^0.3.0"
+    "theme-ui": "^0.3.0",
+    "@mattjennings/react-modal-stack": "^1.0.0"
   },
   "husky": {
     "hooks": {
@@ -67,10 +68,10 @@
     "typescript": "^3.9.7",
     "framer-motion": "^2.3.0",
     "theme-ui": "^0.3.1",
-    "@types/theme-ui": "^0.3.6"
+    "@types/theme-ui": "^0.3.6",
+    "@mattjennings/react-modal-stack": "^1.0.2"
   },
   "dependencies": {
-    "@mattjennings/react-modal-stack": "^1.0.1",
     "@theme-ui/match-media": "^0.3.1",
     "react-scrolllock": "^5.0.1"
   }
