@@ -5,7 +5,7 @@ export const modalTheme = {
     // Modal components
     backdrop: {
       zIndex: `backdrop`,
-      position: `absolute`,
+      position: `fixed`,
       top: 0,
       left: 0,
       right: 0,
