@@ -125,6 +125,8 @@ export default function Modal({
         window.removeEventListener('keydown', handleEsc)
       }
     }
+
+    return () => {}
   }, [closeOnEscKey])
 
   const contextValue = useMemo<ModalContextValue>(
