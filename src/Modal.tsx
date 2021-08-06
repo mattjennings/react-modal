@@ -3,8 +3,7 @@ import { useModals } from '@mattjennings/react-modal-stack'
 import { useResponsiveValue } from '@theme-ui/match-media'
 import { AnimatePresence, motion, Variant } from 'framer-motion'
 import { ModalContextValue, ModalContext } from './ModalContext'
-import { EscHandler } from './EscHandler'
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 // @ts-ignore
 import { TouchScrollable } from 'react-scrolllock'
 import { Box, BoxProps } from 'theme-ui'
@@ -19,9 +18,9 @@ export interface ModalProps extends Omit<BoxProps, 'children'> {
   allowClose?: boolean
 
   /**
-   * Allow closing modal by pressing ESC
+   * Closes modal when user presses the escape key
    */
-  allowEscKey?: boolean
+  closeOnEscKey?: boolean
 
   /**
    * Closes modal when user clicks outside of the modal
@@ -78,7 +77,7 @@ const MotionBox = motion.custom(Box)
 
 export default function Modal({
   allowClose = true,
-  allowEscKey = true,
+  closeOnEscKey = true,
   closeOnOutsideClick = true,
   Backdrop: BackdropComponent = Backdrop,
   children,
@@ -113,6 +112,21 @@ export default function Modal({
     }
   }
 
+  useEffect(() => {
+    if (closeOnEscKey) {
+      const handleEsc = (event: KeyboardEvent) => {
+        if (event.code === 'Escape' || event.keyCode === 27) {
+          handleClose()
+        }
+      }
+      window.addEventListener('keydown', handleEsc)
+
+      return () => {
+        window.removeEventListener('keydown', handleEsc)
+      }
+    }
+  }, [closeOnEscKey])
+
   const contextValue = useMemo<ModalContextValue>(
     () => ({
       allowClose,
@@ -141,7 +155,6 @@ export default function Modal({
               }}
               onClick={closeOnOutsideClick ? handleClose : undefined}
             >
-              {allowEscKey && <EscHandler onClose={onClose} />}
               {BackdropComponent && <BackdropComponent />}
               <MotionBox
                 aria-modal="true"
