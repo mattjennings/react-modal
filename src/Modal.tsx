@@ -3,6 +3,7 @@ import { useModals } from '@mattjennings/react-modal-stack'
 import { useResponsiveValue } from '@theme-ui/match-media'
 import { AnimatePresence, motion, Variant } from 'framer-motion'
 import { ModalContextValue, ModalContext } from './ModalContext'
+import { EscHandler } from './EscHandler'
 import React, { useMemo } from 'react'
 // @ts-ignore
 import { TouchScrollable } from 'react-scrolllock'
@@ -16,6 +17,11 @@ export interface ModalProps extends Omit<BoxProps, 'children'> {
    * Allow user to close modal
    */
   allowClose?: boolean
+
+  /**
+   * Allow closing modal by pressing ESC
+   */
+  allowEscKey?: boolean
 
   /**
    * Closes modal when user clicks outside of the modal
@@ -72,6 +78,7 @@ const MotionBox = motion.custom(Box)
 
 export default function Modal({
   allowClose = true,
+  allowEscKey = true,
   closeOnOutsideClick = true,
   Backdrop: BackdropComponent = Backdrop,
   children,
@@ -134,6 +141,7 @@ export default function Modal({
               }}
               onClick={closeOnOutsideClick ? handleClose : undefined}
             >
+              {allowEscKey && <EscHandler onClose={onClose} />}
               {BackdropComponent && <BackdropComponent />}
               <MotionBox
                 aria-modal="true"
