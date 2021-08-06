@@ -178,3 +178,36 @@ export const Scrolling = () => {
     </>
   )
 }
+
+export const ESCTurnedOff = () => {
+  const [open, setOpen] = useState(true)
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>open</Button>
+      <Modal open={open} allowEscKey={false} onClose={() => setOpen(false)}>
+        {({ onClose }) => (
+          <>
+            <ModalTitle>
+              <Text
+                sx={{
+                  fontSize: 2,
+                  fontWeight: 'medium',
+                }}
+              >
+                Welcome!
+              </Text>
+            </ModalTitle>
+            <ModalContent>
+              <Text>Try pressing ESC. Modal will ignore.</Text>
+            </ModalContent>
+            <ModalFooter>
+              <Button variant="pill" onClick={onClose}>
+                OK
+              </Button>
+            </ModalFooter>
+          </>
+        )}
+      </Modal>
+    </>
+  )
+}
